@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Joe's Hotdog Stand</title>
+		<style type = "text/css">
+			body {
+				background-color: #B1E7E4;
+				font-family: "Times New Roman";
+				text-align: center;
+				font-size: 16px;
+				padding: 15%;
+			}
+		</style>
+	<head>
+	</body>
+		<img src = "hotdog_image.jpg" style = "width: 300px; height: auto; display: block; position: relative; margin-bottom: 10%; margin-left: 35.5%;">
+		<script>
+			var discount = .10;
+			var disc_subtotal = 0;
+			var tax = .0625;
+			var total;
+			
+			var hotdogs = prompt("Welcome to Joe's Hotdog Stand! How many hotdogs would you like to order?");
+			var fries = prompt("How many orders of fries would you like?");
+			var sodas = prompt("How many sodas would you like to order?");
+			
+			var subtotal = (hotdogs * 4.25) + (fries * 2.60) + (sodas * 1.50);
+			
+			if (subtotal >= 20) {
+				disc_subtotal = subtotal - (discount * subtotal);
+			} else {
+				disc_subtotal = subtotal;
+			}
+			total = (tax * disc_subtotal) + disc_subtotal;
+			
+			var item_order = "Iterms Ordered: ";
+			var subt = "Subtotal Before Discount and Tax: ";
+			var disc = "Discount: ";
+			var disc_subt = "Discounted Subtotal: ";
+			var tax_text = "Tax: ";
+			var total_text = "Final Total: ";
+			
+			document.write(item_order.bold());
+			document.write("<br />");
+			document.write(hotdogs + " Hotdogs");
+			document.write("<br />");
+			document.write(fries + " Fries");
+			document.write("<br />");
+			document.write(sodas + " Sodas");
+			document.write("<br />");
+			document.write(subt.bold() + "&#36;");
+			document.write((subtotal).toFixed(2));
+			document.write("<br />");
+			document.write(disc.bold());
+			
+			if (subtotal >= 20) {
+				document.write("Joe's Special 10% Off Discount!");
+				document.write("<br />");
+			} else {
+				document.write("No Discount");
+				document.write("<br />");
+			}
+			document.write(disc_subt.bold() + "&#36;");
+			document.write((disc_subtotal).toFixed(2));
+			document.write("<br />");
+			document.write(tax_text.bold());
+			document.write("6.25%");
+			document.write("<br />");
+			document.write(total_text.bold() + "&#36;");
+			document.writeln((total).toFixed(2));	
+		</script>
+	</body>
+	</html>
